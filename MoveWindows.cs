@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 public class MoveWindows : MonoBehaviour, IPointerDownHandler, IDragHandler
 {
-    public float X, Y;
+    private float X, Y;
     public void OnDrag(PointerEventData eventData)
     {
         gameObject.transform.position = Input.mousePosition - new Vector3(X, Y, 0);
