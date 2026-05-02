@@ -4,7 +4,7 @@ using UnityEngine.UIElements;
 using System.Collections;
 using System.Collections.Generic;
 
-public class MoveWindows : MonoBehaviour, IDragHandler, IPointerEnterHandler, IPointerExitHandler
+public class MoveWindows : MonoBehaviour, IDragHandler, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     public float X, Y;
     private bool MouseOver = false;
@@ -26,6 +26,12 @@ public class MoveWindows : MonoBehaviour, IDragHandler, IPointerEnterHandler, IP
         }
     }
     public void OnDrag(PointerEventData eventData)
+    {
+        transform.SetAsLastSibling();
+        gameObject.transform.position = Input.mousePosition - new Vector3(X, Y, 0);
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
     {
         transform.SetAsLastSibling();
         gameObject.transform.position = Input.mousePosition - new Vector3(X, Y, 0);
